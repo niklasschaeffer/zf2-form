@@ -10,9 +10,9 @@
 
 namespace StrokerForm\Renderer;
 
-use Zend\Form\ElementInterface;
-use Zend\Form\FormInterface;
-use Zend\View\Renderer\PhpRenderer as View;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\FormInterface;
+use Laminas\View\Renderer\PhpRenderer as View;
 
 class RendererCollection extends AbstractRenderer
 {

@@ -11,9 +11,9 @@
 namespace StrokerForm\Options;
 
 use InvalidArgumentException;
-use Zend\ServiceManager\Config;
-use Zend\ServiceManager\ConfigInterface;
-use Zend\Stdlib\AbstractOptions;
+use Laminas\ServiceManager\Config;
+use Laminas\ServiceManager\ConfigInterface;
+use Laminas\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions
 {

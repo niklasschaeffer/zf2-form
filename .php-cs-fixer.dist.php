@@ -1,4 +1,4 @@
-<?php /** source: @see https://github.com/zendframework/zend-session/blob/master/.php_cs */
+<?php
 $finder = \Symfony\CS\Finder\DefaultFinder::create()
     ->in('src')
     ->in('tests')
