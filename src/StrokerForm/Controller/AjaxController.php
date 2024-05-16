@@ -10,6 +10,9 @@
 
 namespace StrokerForm\Controller;
 
+use InvalidArgumentException;
+use Laminas\Form\FormInterface;
+use Laminas\Stdlib\ResponseInterface;
 use StrokerForm\FormManager;
 use Laminas\Http\PhpEnvironment\Request;
 use Laminas\Json\Json;
@@ -35,8 +38,8 @@ class AjaxController extends AbstractActionController
     /**
      * Validate a field and return validation messages on failure
      *
-     * @throws \InvalidArgumentException
-     * @return \Laminas\Stdlib\ResponseInterface
+     * @throws InvalidArgumentException
+     * @return ResponseInterface
      */
     public function validateAction()
     {
@@ -47,15 +50,15 @@ class AjaxController extends AbstractActionController
         $data = $request->getPost()->toArray();
 
         if (count($data) > 1) {
-            throw new \InvalidArgumentException('Validating multiple fields is not allowed');
+            throw new InvalidArgumentException('Validating multiple fields is not allowed');
         }
         if (empty($data)) {
-            throw new \InvalidArgumentException('No input data received');
+            throw new InvalidArgumentException('No input data received');
         }
 
         $formAlias = $this->getEvent()->getRouteMatch()->getParam('form');
 
-        /** @var $form \Zend\Form\FormInterface */
+        /** @var $form FormInterface */
         $form = $this->getFormManager()->get($formAlias);
 
         $filter = $form->getInputFilter();
@@ -95,7 +98,7 @@ class AjaxController extends AbstractActionController
      *
      * @return array
      */
-    protected function convertDataArrayToValidationGroup($data)
+    protected function convertDataArrayToValidationGroup($data): array
     {
         $ret = [];
         foreach ($data as $key => $value) {

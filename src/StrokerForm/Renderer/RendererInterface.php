@@ -23,7 +23,7 @@ interface RendererInterface
      *
      * @param string                   $formAlias
      * @param View                     $view
-     * @param \Laminas\Form\FormInterface $form
+     * @param FormInterface $form
      * @param array                    $options
      *
      * @return
@@ -40,7 +40,7 @@ interface RendererInterface
     /**
      * Set the route to use for serving assets
      *
-     * @param  \Laminas\Mvc\Router\RouteInterface $route
+     * @param RouteInterface $route
      *
      * @return mixed
      */

@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": ">=5.6 || >= 7.0",
+        "php": ">=7.4",
         "laminas/laminas-eventmanager": "^2",
         "laminas/laminas-form": "^2",
         "laminas/laminas-http": "^2",

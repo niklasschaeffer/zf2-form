@@ -44,9 +44,9 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
-     * @param array
+     * @param []
      */
-    public function setActiveRenderers(array $activeRenderers)
+    public function setActiveRenderers([] $activeRenderers)
     {
         $this->activeRenderers = $activeRenderers;
     }

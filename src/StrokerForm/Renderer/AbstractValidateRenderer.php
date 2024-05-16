@@ -10,17 +10,18 @@
 
 namespace StrokerForm\Renderer;
 
-use Zend\Form\Element\MultiCheckbox;
-use Zend\Form\Element\Radio;
-use Zend\Form\ElementInterface;
-use Zend\Form\FieldsetInterface;
-use Zend\Form\FormInterface;
-use Zend\InputFilter\InputFilterInterface;
-use Zend\InputFilter\InputInterface;
-use Zend\Validator\Csrf;
-use Zend\Validator\NotEmpty;
-use Zend\Validator\ValidatorInterface;
-use Zend\View\Renderer\PhpRenderer as View;
+use Laminas\Form\Element;
+use Laminas\Form\Element\MultiCheckbox;
+use Laminas\Form\Element\Radio;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\FieldsetInterface;
+use Laminas\Form\FormInterface;
+use Laminas\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputInterface;
+use Laminas\Validator\Csrf;
+use Laminas\Validator\NotEmpty;
+use Laminas\Validator\ValidatorInterface;
+use Laminas\View\Renderer\PhpRenderer as View;
 
 abstract class AbstractValidateRenderer extends AbstractRenderer
 {
@@ -28,8 +29,8 @@ abstract class AbstractValidateRenderer extends AbstractRenderer
      * Executed before the ZF2 view helper renders the element
      *
      * @param string                          $formAlias
-     * @param \Zend\View\Renderer\PhpRenderer $view
-     * @param \Zend\Form\FormInterface        $form
+     * @param View $view
+     * @param FormInterface $form
      * @param array                           $options
      *
      * @return FormInterface
@@ -44,7 +45,7 @@ abstract class AbstractValidateRenderer extends AbstractRenderer
 
         $inputFilter = $form->getInputFilter();
 
-        /** @var $element \Zend\Form\Element */
+        /** @var $element Element */
         $validators = $this->extractValidatorsForForm($form, $inputFilter);
         foreach ($validators as $validator) {
             $element = $validator['element'];
@@ -95,7 +96,7 @@ abstract class AbstractValidateRenderer extends AbstractRenderer
      * @param InputFilterInterface $inputFilter
      * @param ElementInterface     $element
      *
-     * @return mixed
+     * @return array|void
      */
     public function getValidatorsForElement(InputFilterInterface $inputFilter, ElementInterface $element)
     {
@@ -153,7 +154,7 @@ abstract class AbstractValidateRenderer extends AbstractRenderer
      *
      * @param  ElementInterface $element
      *
-     * @return mixed
+     * @return void
      */
     public function preRenderInputField(ElementInterface $element)
     {

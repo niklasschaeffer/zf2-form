@@ -11,7 +11,9 @@
 
 namespace StrokerForm\Renderer\JqueryValidate;
 
-class Options extends \StrokerForm\Renderer\Options
+use StrokerForm\Renderer\Options as AbstractOptions;
+
+class Options extends AbstractOptions
 {
     /**
      * @var array
